@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,9 +10,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuWin;
     [SerializeField] GameObject menuLose;
 
-    [SerializeField] TMP_Text enemyCountText;
-
-    public GameObject checkpointMenu;
     public GameObject playerSpawnPos;
     public GameObject flashDamageScreen;
     public Image playerHPBar;
@@ -21,8 +17,6 @@ public class GameManager : MonoBehaviour
     public playerController playerScript;
 
     public bool isPaused;
-
-    int enemyCount;
 
     // Awake is called before the first frame update
     void Awake()
@@ -69,20 +63,6 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         menuActive.SetActive(isPaused);
         menuActive = null;
-    }
-
-    public void updateGameGoal(int amount)
-    {
-        enemyCount += amount;
-        enemyCountText.text = enemyCount.ToString("F0");
-
-        if (enemyCount <= 0)
-        {
-            // you win!
-            statePause();
-            menuActive = menuWin;
-            menuActive.SetActive(isPaused);
-        }
     }
 
     public void YouLose()
