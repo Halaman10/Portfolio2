@@ -1,17 +1,23 @@
+using System;
 using UnityEngine;
 
 namespace CTC.Game
 {
     public class Member : MonoBehaviour
     {
-        [Tooltip("Represents the team of the player or NPC. Blue = 0 and Pink = 1")]
-        [Range(0, 1)] public int teamID = 0;
+        public enum TeamID { Blue = 0, Pink = 1 };
 
-        [Tooltip("Represents the point where the opposing team members will aim when attacking")]
-        [SerializeField] Transform AimPoint;
+        [Tooltip("Represents the team of the player or NPC. Blue = 0 and Pink = 1")]
+        public TeamID teamID;
+
+        //[Tooltip("Represents the point where the member will spawn")]
+        [NonSerialized] public Vector3 SpawnPos;
 
         void Start()
         {
+            if (SpawnPos == null) SpawnPos = transform.position;
+            Debug.Log("Member SpawnPos: " +  SpawnPos);
+
             if (!MembersManager.Instance.Members.Contains(this))
             {
                 MembersManager.Instance.Members.Add(this);

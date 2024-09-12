@@ -858,6 +858,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2853405065867175331}
   - component: {fileID: 6410978066155485437}
+  - component: {fileID: 7183456871293097256}
+  - component: {fileID: 4765124687690292912}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -897,6 +899,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerScript: {fileID: 0}
+  respawnDelayTime: 5
+--- !u!114 &7183456871293097256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175797996732408230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1065356202995d146a399fd319418838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4765124687690292912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175797996732408230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1c2ede3c6ac587449d1f7eedf7df57f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueModel: {fileID: 0}
+  pinkModel: {fileID: 0}
+  zoneRadius: 5
 --- !u!1 &7700022053433276040
 GameObject:
   m_ObjectHideFlags: 0

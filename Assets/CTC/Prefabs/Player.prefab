@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3726535255225092441}
   - component: {fileID: 3726470551010967440}
   - component: {fileID: 8883515312594746285}
+  - component: {fileID: 2494420556460232398}
   - component: {fileID: 2947100448826180685}
   - component: {fileID: 6226867581370298593}
   - component: {fileID: 8333469402929189841}
@@ -55,6 +56,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   playerHealth: {fileID: 3726470551010967440}
+  member: {fileID: 2494420556460232398}
   speed: 5
   sprintModifier: 3
   shootDamage: 1
@@ -104,6 +106,20 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2494420556460232398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574441581744736285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7376d1a217c76a8499deb9149168e03c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  teamID: 1
+  SpawnPos: {fileID: 0}
 --- !u!33 &2947100448826180685
 MeshFilter:
   m_ObjectHideFlags: 0

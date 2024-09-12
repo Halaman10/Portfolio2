@@ -17,7 +17,7 @@ namespace CTC.Game
         {
             if (type == damageType.bullet)
             {
-                //rb.velocity = (GameManager.Instance.player.transform.position - (transform.position - new Vector3(0, 0.5f, 0))).normalized * speed;
+                rb.velocity = (GameManager.Instance.player.transform.position - (transform.position - new Vector3(0, 0.5f, 0))).normalized * speed;
                 Destroy(gameObject, destroyTime);
             }
         }
@@ -29,11 +29,11 @@ namespace CTC.Game
                 return;
             }
 
-            IDamage dmg = other.GetComponent<IDamage>();
+            Health targetHealth = other.GetComponent<Health>();
 
-            if (dmg != null)
+            if (targetHealth != null)
             {
-                dmg.takeDamage(damageAmount);
+                targetHealth.TakeDamage(damageAmount, null);
             }
             if (type == damageType.bullet)
                 Destroy(gameObject);

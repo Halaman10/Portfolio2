@@ -1,4 +1,6 @@
 using CTC.Gameplay;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace CTC.Game
@@ -13,12 +15,39 @@ namespace CTC.Game
         [Tooltip("PlayerController script")]
         public PlayerController playerScript;
 
-        private void Awake()
+        [Tooltip("Duration of delay before respawning")]
+        [Range(0, 5)] public float respawnDelayTime;
+
+        void Awake()
         {
             Instance = this;
 
             player = GameObject.FindWithTag("Player");
             playerScript = player.GetComponent<PlayerController>();
+
+            EventManager.AddEventListener<DeathEvent>(OnDeath);
+        }
+
+        void Start()
+        {
+            SpawnManager.Instance.AssignSpawnPos();
+        }
+
+        void OnDeath(DeathEvent evt) => Respawn();
+
+        void Respawn()
+        {
+            if (playerScript.IsDead)
+            {
+                StartCoroutine(DelayRespawn());
+
+                playerScript.SpawnPlayer();
+            }
+        }
+
+        IEnumerator DelayRespawn()
+        {
+            yield return new WaitForSeconds(respawnDelayTime);
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace CTC.Gameplay
 {
-    [RequireComponent(typeof(CharacterController), typeof(Health))]
+    [RequireComponent(typeof(CharacterController), typeof(Member), typeof(Health))]
     public class PlayerController : MonoBehaviour
     {
         [Header("Components")]
@@ -16,6 +16,9 @@ namespace CTC.Gameplay
 
         [Tooltip("Script for managing player health")]
         [SerializeField] Health playerHealth;
+
+        [Tooltip("Script for managing player as a team member")]
+        [SerializeField] Member member;
 
         [Header("Movement")]
         [Tooltip("Max walking speed (1 - 5)")]
@@ -56,7 +59,17 @@ namespace CTC.Gameplay
 
         void Start()
         {
-            //playerHealth.OnDie += OnDie;
+            // Spawn player at assigned spawn pos
+            SpawnPlayer();
+
+            // Subscribe to Death event
+            playerHealth.OnDie += OnDie;
+            playerHealth.OnRespawn += OnRespawn;
+        }
+
+        public void SpawnPlayer()
+        {
+            transform.position = member.SpawnPos;
         }
 
         private void Update()
@@ -93,6 +106,11 @@ namespace CTC.Gameplay
             controller.Move(playerVelocity * Time.deltaTime);
 
             playerVelocity.y -= gravity * Time.deltaTime;
+
+            if (Input.GetButton("Shoot") && !isShooting)
+            {
+                StartCoroutine(Shoot());
+            }
         }
 
         void Sprint()
@@ -117,11 +135,11 @@ namespace CTC.Gameplay
             if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, shootDistance, ~ignoreMask))
             {
                 //Debug.Log(hit.collider.name);
-                Health health = hit.collider.GetComponent<Health>();
+                Health targetHealth = hit.collider.GetComponent<Health>();
 
-                if (health != null)
+                if (targetHealth != null)
                 {
-                    health.TakeDamage(shootDamage, null);
+                    targetHealth.TakeDamage(shootDamage, null);
                 }
             }
             yield return new WaitForSeconds(shootRate);
@@ -133,6 +151,13 @@ namespace CTC.Gameplay
             IsDead = true;
 
             EventManager.Broadcast(Events.DeathEvent);
+        }
+
+        void OnRespawn()
+        {
+            IsDead = false;
+
+            playerHealth.CurrentHealth = playerHealth.MaxHealth;
         }
     }
 }

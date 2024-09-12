@@ -5,7 +5,7 @@ namespace CTC.Game
     public static class Events
     {
         public static CrystalCaptureEvent CrystalCaptureEvent = new CrystalCaptureEvent();
-        public static RoundBeginEvent RoundBeginEvent = new RoundBeginEvent();
+        public static BonusRoundEvent RoundBeginEvent = new BonusRoundEvent();
         public static RoundOverEvent RoundOverEvent = new RoundOverEvent();
         public static GameOverEvent GameOverEvent = new GameOverEvent();
         public static DeathEvent DeathEvent = new DeathEvent();
@@ -17,7 +17,7 @@ namespace CTC.Game
         public GameObject CrystalCarrier;
     }
 
-    public class RoundBeginEvent : GameEvent
+    public class BonusRoundEvent : GameEvent
     {
         public bool isBonusRound;
     }

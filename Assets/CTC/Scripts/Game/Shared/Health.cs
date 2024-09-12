@@ -17,6 +17,7 @@ namespace CTC.Game
 
         public UnityAction<float, GameObject> OnDamaged;
         public UnityAction OnDie;
+        public UnityAction OnRespawn;
 
         public float CurrentHealth { get; set; }
 
@@ -70,6 +71,7 @@ namespace CTC.Game
             {
                 isDead = true;
                 OnDie?.Invoke();
+                OnRespawn?.Invoke();
             }
         }
 
