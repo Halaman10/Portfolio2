@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
 {
-    public float daySpeed = 2f;
-    public float nightSpeed = 4f;
+    public float dSpeed = 2f; // day speed
+    public float nSpeed = 4f; // night speed
 
     // Start is called before the first frame update
     void Start()
@@ -17,15 +17,15 @@ public class DayNightCycle : MonoBehaviour
     void Update()
     {
         float speed;
-        if(transform.position.y >= -1.4)
+        if(transform.position.y >= -1.4) // when the angle of the Directional Light is >= to 1.4 it will be day speed, otherwise it is night speed
         {
-            speed = daySpeed;
+            speed = dSpeed;
         }
         else
         {
-            speed = nightSpeed;
+            speed = nSpeed;
         }
-        transform.RotateAround(Vector3.zero, Vector3.right, speed * Time.deltaTime);
+        transform.RotateAround(Vector3.zero, Vector3.right, speed * Time.deltaTime); // these 2 get called every frame allowing for smooth day night cycling
         transform.LookAt(Vector3.zero);
     }
 }
