@@ -76,7 +76,8 @@ namespace CTC.Gameplay
                 playerVelocity = Vector3.zero;
             }
 
-            move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            move = Input.GetAxis("Vertical") * transform.forward +
+                Input.GetAxis("Horizontal") * transform.right;
 
             // Normalize the move vector
             move = Vector3.ClampMagnitude(move, 1);
