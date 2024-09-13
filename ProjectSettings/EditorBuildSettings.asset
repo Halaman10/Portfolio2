@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/CTC/Scenes/Samira's Scene.unity
+    guid: 42f04f13c5c7350408c791fbf0b328b9
+  - enabled: 1
+    path: Assets/CTC/Scenes/JD's Scene.unity
+    guid: f156463f5f0cdae4bbdd6f8c0bd628c6
+  - enabled: 1
+    path: Assets/CTC/Scenes/Main Scene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
