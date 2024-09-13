@@ -8,6 +8,7 @@ namespace CTC.Game
         public static BonusRoundEvent RoundBeginEvent = new BonusRoundEvent();
         public static RoundOverEvent RoundOverEvent = new RoundOverEvent();
         public static GameOverEvent GameOverEvent = new GameOverEvent();
+        public static RespawnEvent RespawnEvent = new RespawnEvent();
         public static DeathEvent DeathEvent = new DeathEvent();
         public static DamageEvent DamageEvent = new DamageEvent();
     }
@@ -32,6 +33,8 @@ namespace CTC.Game
     {
         public bool Win;
     }
+
+    public class RespawnEvent : GameEvent { }
 
     public class DeathEvent : GameEvent { }
 

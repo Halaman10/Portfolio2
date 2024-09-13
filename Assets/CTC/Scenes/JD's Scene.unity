@@ -121,7 +121,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: d906f04f6833e4a47a11cf0311bcb952, type: 2}
 --- !u!1001 &4818553
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11181,7 +11181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9f00cae941aaaa142ade9d9171b47d06, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9f00cae941aaaa142ade9d9171b47d06, type: 3}
       propertyPath: m_LocalScale.x
@@ -16290,8 +16290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b4b857c47d18d4aa653b25b9aee2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  daySpeed: 2
-  nightSpeed: 15
+  dSpeed: 2
+  nSpeed: 4
 --- !u!1001 &1348678598
 PrefabInstance:
   m_ObjectHideFlags: 0

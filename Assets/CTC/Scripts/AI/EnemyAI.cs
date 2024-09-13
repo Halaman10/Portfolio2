@@ -80,7 +80,7 @@ namespace CTC.AI
             playerDirection = GameManager.Instance.player.transform.position - headPos.position;
             angleToPlayer = Vector3.Angle(playerDirection, transform.forward);
 
-            Debug.Log(angleToPlayer);
+            //Debug.Log(angleToPlayer);
             Debug.DrawRay(headPos.position, playerDirection);
 
             RaycastHit hit;

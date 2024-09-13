@@ -16,7 +16,7 @@ namespace CTC.Game
         void Start()
         {
             if (SpawnPos == null) SpawnPos = transform.position;
-            Debug.Log("Member SpawnPos: " +  SpawnPos);
+            //Debug.Log("Member SpawnPos: " +  SpawnPos);
 
             if (!MembersManager.Instance.Members.Contains(this))
             {

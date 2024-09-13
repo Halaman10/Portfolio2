@@ -7,10 +7,10 @@ namespace CTC.Game
         public static SpawnManager Instance;
 
         [Tooltip("This represents the origin of the Blue Team spawn zone")]
-        [SerializeField] Renderer blueModel;
+        GameObject blueOrigin;
 
         [Tooltip("This represents the origin of the Pink Team spawn zone")]
-        [SerializeField] Renderer pinkModel;
+        GameObject pinkOrigin;
 
         [Tooltip("This is the radius of the spawn zone")]
         [SerializeField] float zoneRadius;
@@ -20,13 +20,16 @@ namespace CTC.Game
         void Awake()
         {
             Instance = this;
+
+            blueOrigin = GameObject.FindWithTag("Blue Spawn Pos");
+            pinkOrigin = GameObject.FindWithTag("Pink Spawn Pos");
         }
 
         public void AssignSpawnPos()
         {
             foreach (Member member in MembersManager.Instance.Members)
             {
-                //Debug.Log("TeamID: " + member.teamID);
+                Debug.Log("TeamID: " + member.teamID);
                 if (member.teamID == Member.TeamID.Blue)
                 {
                     member.SpawnPos = BlueTeamSpawnPos();
@@ -35,7 +38,7 @@ namespace CTC.Game
                 {
                     member.SpawnPos = PinkTeamSpawnPos();
                 }
-                //Debug.Log("SpawnManager SpawnPos: " + member.SpawnPos);
+                Debug.Log("SpawnManager SpawnPos: " + member.SpawnPos);
             }
         }
 
@@ -43,14 +46,14 @@ namespace CTC.Game
         {
             randomDist = Random.insideUnitSphere * zoneRadius;
 
-            return blueModel.transform.position + randomDist;
+            return blueOrigin.transform.position + randomDist;
         }
 
         Vector3 PinkTeamSpawnPos()
         {
             randomDist = Random.insideUnitSphere * zoneRadius;
 
-            return pinkModel.transform.position + randomDist;
+            return pinkOrigin.transform.position + randomDist;
         }
     }
 }

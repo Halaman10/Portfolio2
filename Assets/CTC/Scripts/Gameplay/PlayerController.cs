@@ -155,8 +155,6 @@ namespace CTC.Gameplay
 
         void OnRespawn()
         {
-            IsDead = false;
-
             playerHealth.CurrentHealth = playerHealth.MaxHealth;
         }
     }

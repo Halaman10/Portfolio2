@@ -28,11 +28,6 @@ namespace CTC.Game
             EventManager.AddEventListener<DeathEvent>(OnDeath);
         }
 
-        void Start()
-        {
-            SpawnManager.Instance.AssignSpawnPos();
-        }
-
         void OnDeath(DeathEvent evt) => Respawn();
 
         void Respawn()
@@ -43,6 +38,7 @@ namespace CTC.Game
 
                 playerScript.SpawnPlayer();
             }
+            SpawnManager.Instance.AssignSpawnPos();
         }
 
         IEnumerator DelayRespawn()
